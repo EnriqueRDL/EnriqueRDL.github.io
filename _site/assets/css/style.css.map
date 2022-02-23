@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "style.css",
+	"sources": [
+		"style.scss"
+	],
+	"sourcesContent": [
+		"$font: \"Helvetica Nue\", Sans-Serif;\n\nbody {\n\tfont-family: $font;\n}"
+	],
+	"names": [],
+	"mappings": "AAEA,AAAA,IAAI,AAAC,CACJ,WAAW,CAHL,eAAe,CAAE,UAAU,CAIjC"
+}

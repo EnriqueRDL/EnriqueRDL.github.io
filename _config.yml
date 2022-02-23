@@ -6,7 +6,7 @@ sass:
 
 permalink: /blog/:title/
 
-baseurl: http://127.0.0.1:5500/_site
+baseurl: https://enriquerdl.com #http://127.0.0.1:5500/_site
 
 twitter: https://twitter.com/EnriqueRDL
 github: https://github.com/EnriqueRDL

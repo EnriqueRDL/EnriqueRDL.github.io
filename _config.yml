@@ -6,7 +6,7 @@ sass:
 
 permalink: /blog/:title/
 
-# baseurl: /jekylltest/_site
+baseurl: https://enriquerdl.com # /jekylltest/_site
 
 twitter: https://twitter.com/EnriqueRDL
 github: https://github.com/EnriqueRDL

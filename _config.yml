@@ -6,7 +6,7 @@ sass:
 
 permalink: /blog/:title/
 
-baseurl: https://enriquerdl.com #http://127.0.0.1:5500/_site
+baseurl: http://127.0.0.1:5500/_site
 
 twitter: https://twitter.com/EnriqueRDL
 github: https://github.com/EnriqueRDL
@@ -15,18 +15,28 @@ markdown: kramdown
 
 collections:
     authors:
+    portfolio:
+        output: true
+        permalink: /portfolio/:title/
+
 
 defaults:
-  -
-    scope:
-        path: ""
-        type: "pages"
-    values:
-        layout: "default"
-  -
-    scope:
-        path: ""
-        type: "posts" # previously `page` in Jekyll 2.2.
-    values:
-        layout: "post" # overrides previous default layout
-        author: "EnriqueRDL"
+    -
+        scope:
+            path: ""
+            type: "pages"
+        values:
+            layout: "default"
+    -
+        scope:
+            path: ""
+            type: "posts"
+        values:
+            layout: "post"
+            author: "EnriqueRDL"
+    -
+        scope:
+            path: ""
+            type: "portfolio"
+        values:
+            layout: "portfolio"

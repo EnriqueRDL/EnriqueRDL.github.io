@@ -15,14 +15,14 @@ html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del
 
 
 $font: "Inter", "Helvetica Nue", "Helvetica", Sans-Serif;
-$font-size: 21px;
+$base-font-size: 21px;
 
 $color-dark: #1d1d1d;
 $color-light: #fefefe;
 
 body {
 	font-family: $font;
-	font-size: 21px;
+	font-size: $base-font-size;
 	background: $color-light;
 }
 

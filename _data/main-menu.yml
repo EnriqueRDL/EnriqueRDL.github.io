@@ -1,18 +1,18 @@
 # Without external: true -> {{ site.baseurl }} will be prepended to links.
 
-- title: Home
+- title: 👨‍💻 EnriqueRDL
   link: /
 
-- title: Portfolio
+- title: 💼 Portfolio
   link: /portfolio/
 
-- title: Blog
+- title: 📝 Blog
   link: /blog/
 
-- title: Contact
+- title: 📬 Contact
   link: /contact/
 
-- title: Twitter
+- title: 🐓 Twitter
   link: https://twitter.com/EnriqueRDL
   external: true
   new-tab: true

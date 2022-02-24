@@ -15,29 +15,134 @@ html,body,div,span,applet,object,iframe,a,abbr,acronym,address,big,cite,code,del
 
 
 $font: "Inter", "Helvetica Nue", "Helvetica", Sans-Serif;
-$base-font-size: 21px;
+$base-font-size: 16px;
 
 $color-dark: #1d1d1d;
 $color-light: #fefefe;
 
-body {
-	font-family: $font;
+html {
 	font-size: $base-font-size;
+}
+body {
+	overflow-y: scroll;
+	font-family: $font;
 	background: $color-light;
+}
+
+.site-banner {
+	background: rgb(180, 47, 29);
+	color: $color-light;
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	padding: .5rem;
+	text-align: center;
+	text-decoration: underline;
 }
 
 .site-header {
 	background: $color-dark;
 	color: $color-light;
-	padding: 1rem;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+.site-title {
+	display: none;
 }
 .site-title a,
 .site-title a:visited {
 	color: inherit;
 	text-decoration: none;
+	font-size: 1.5rem;
 }
 .site-title a:hover,
 .site-title a:focus {
 	text-decoration: underline;
 }
+.site-nav ul {
+	padding: 0 3rem;
+	display: flex;
+	flex-wrap: wrap;
+	flex-basis: 0;
+	text-align: center;
+}
+.site-nav li {
+	flex-grow: 1;
+}
+.site-nav a,
+.site-nav a:visited {
+	padding: 1rem;
+	color: $color-light;
+	display: block;
+	text-decoration: none;
+}
+.site-nav a:hover,
+.site-nav a:focus {
+	background: #000;
+}
 
+.site-footer {
+	background: $color-dark;
+	color: $color-light;
+	padding: 1.5rem;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.bar {
+	position: fixed;
+	top: 3rem;
+	height: calc(100% - 6rem);
+	background: $color-dark;
+	width: 3rem;
+}
+.bar-left {
+	left: 0;
+}
+.bar-right {
+	right: 0;
+}
+
+.big-container {
+	margin: 3rem;
+}
+@media screen and (max-width: 700px) {
+	.site-nav li:first-child {
+		width: 100%;
+	}
+	.big-container {
+		margin-top: 6rem;
+	}
+}
+@media screen and (max-width: 550px) {
+	.site-nav li {
+		width: 50%;
+	}
+	.big-container {
+		margin-top: 9rem;
+	}
+}
+
+.page-title {
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+
+.content-styles {
+	line-height: 1.5;
+}
+.content-styles a,
+.content-styles a:visited {
+	color: rgb(33, 120, 179);
+}
+
+
+
+.clearfix {
+	clear: both;
+}

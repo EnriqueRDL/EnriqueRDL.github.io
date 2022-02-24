@@ -18,6 +18,9 @@ collections:
     portfolio:
         output: true
         permalink: /portfolio/:title/
+    secret:
+        output: true
+        permalink: /secret/:title/
 
 
 defaults:
@@ -40,3 +43,9 @@ defaults:
             type: "portfolio"
         values:
             layout: "portfolio"
+    -
+        scope:
+            path: ""
+            type: "secret"
+        values:
+            layout: "default"

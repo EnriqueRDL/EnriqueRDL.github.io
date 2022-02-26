@@ -6,7 +6,7 @@ sass:
 
 permalink: /blog/:title/
 
-baseurl: https://enriquerdl.com # http://127.0.0.1:5500/_site
+baseurl: http://127.0.0.1:5500/_site
 
 twitter: https://twitter.com/EnriqueRDL
 github: https://github.com/EnriqueRDL
@@ -18,6 +18,9 @@ collections:
     portfolio:
         output: true
         permalink: /portfolio/:title/
+    projects:
+        output: true
+        permalink: /projects/:title/
     secret:
         output: true
         permalink: /secret/:title/
@@ -43,6 +46,12 @@ defaults:
             type: "portfolio"
         values:
             layout: "portfolio"
+    -
+        scope:
+            path: ""
+            type: "projects"
+        values:
+            layout: "default"
     -
         scope:
             path: ""

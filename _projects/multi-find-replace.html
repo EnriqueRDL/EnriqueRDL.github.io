@@ -1,0 +1,124 @@
+---
+title: Multi Find and Replace
+---
+
+<style>
+	.wrap {
+		max-width: 500px;
+		width: 80%;
+		margin: 0 auto;
+		padding-bottom: 1rem;
+	}
+	.var-inputs {
+
+	}
+	.box-styles {
+		border: 1px solid #1d1d1d;
+		padding: .5rem;
+		display: block;
+		width: 100%;
+		margin-bottom: 1rem;
+	}
+	#the-input {
+		min-height: 10rem;
+		resize: vertical;
+	}
+	#to-be-replaced {
+	}
+	#the-replacements {
+		min-height: 10rem;
+		resize: vertical;
+	}
+	#submitter {
+		border: 1px solid #1d1d1d;
+		color: inherit;
+		padding: .5rem;
+		display: block;
+		text-align: center;
+		text-decoration: none;
+		border-radius: 5rem;
+		background: rgb(189, 230, 255);
+		width: 100%;
+		font-size: 1rem;
+		cursor: pointer;
+	}
+	#submitter:hover,
+	#submitter:focus {
+		background: rgb(108, 196, 255);
+	}
+	.error-text {
+		display: none;
+		margin-bottom: 1rem;
+		background: red;
+		color: white;
+		border: 1px solid #1d1d1d;
+		padding: .5rem;
+	}
+	#outputs h2 {
+		margin-top: .5rem;
+		padding-top: .5rem;
+		border-top: 1px solid #1d1d1d;
+		font-weight: 700;
+		font-size: 1.25rem;
+	}
+</style>
+
+<div class="wrap">
+	<div class="replace-inputs">
+		<label for="the-input">Enter the text you want to find through:</label>
+		<textarea class="box-styles" id="the-input" placeholder="I want to replace [[this]] with something else."></textarea>
+
+		<label for="to-be-replaced">Enter the text you want to replace:</label>
+		<input type="text" class="box-styles" id="to-be-replaced" placeholder="[[this]]">
+	</div>
+
+	<div class="replace-text">
+		<label for="the-replacements">Enter the replacements (1 per line):</label>
+		<textarea class="box-styles" id="the-replacements" placeholder="something
+else
+here"></textarea>
+	</div>
+
+	<div class="error-text">Please enter all necessary fields.</div>
+
+	<button id="submitter">Find & Replace</button>
+
+	<div id="outputs">
+
+	</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+
+$('#submitter').click(function() {
+	if (!$('#the-input').val() || !$('#to-be-replaced').val() || !$('#the-replacements').val()) {
+		$('.error-text').slideDown();
+	} else {
+		$('.error-text').slideUp();
+
+		var inputText = $('#the-input').val();
+		var replacedText = $('#to-be-replaced').val();
+		var replacementText = $('#the-replacements').val();
+
+		var replacements = replacementText.split(/\r?\n/);
+
+		console.log(replacements);
+
+		$('#outputs').empty();
+
+		var outputCount = 0;
+
+		replacements.forEach(theReplacement => {
+			var outputText = inputText.replace(replacedText, theReplacement);
+
+			outputCount += 1;
+
+			$('#outputs').append('<h2><input type="checkbox" id="out-' + outputCount + '"> <label for="out-' + outputCount + '">Output: ' + outputCount + '</label></h2><p>' + outputText + '</p>');
+		});
+
+	}
+});
+
+</script>

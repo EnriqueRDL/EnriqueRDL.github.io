@@ -3,33 +3,33 @@ title: Multi Find and Replace
 ---
 
 <style>
-	.wrap {
+	.multi-find-replace-wrap {
 		max-width: 500px;
 		width: 80%;
 		margin: 0 auto;
 		padding-bottom: 1rem;
 	}
-	.var-inputs {
+	.multi-find-replace-wrap .var-inputs {
 
 	}
-	.box-styles {
+	.multi-find-replace-wrap .box-styles {
 		border: 1px solid #1d1d1d;
 		padding: .5rem;
 		display: block;
 		width: 100%;
 		margin-bottom: 1rem;
 	}
-	#the-input {
+	.multi-find-replace-wrap #the-input {
 		min-height: 10rem;
 		resize: vertical;
 	}
-	#to-be-replaced {
+	.multi-find-replace-wrap #to-be-replaced {
 	}
-	#the-replacements {
+	.multi-find-replace-wrap #the-replacements {
 		min-height: 10rem;
 		resize: vertical;
 	}
-	#submitter {
+	.multi-find-replace-wrap #submitter {
 		border: 1px solid #1d1d1d;
 		color: inherit;
 		padding: .5rem;
@@ -42,11 +42,11 @@ title: Multi Find and Replace
 		font-size: 1rem;
 		cursor: pointer;
 	}
-	#submitter:hover,
-	#submitter:focus {
+	.multi-find-replace-wrap #submitter:hover,
+	.multi-find-replace-wrap #submitter:focus {
 		background: rgb(108, 196, 255);
 	}
-	.error-text {
+	.multi-find-replace-wrap .error-text {
 		display: none;
 		margin-bottom: 1rem;
 		background: red;
@@ -54,19 +54,27 @@ title: Multi Find and Replace
 		border: 1px solid #1d1d1d;
 		padding: .5rem;
 	}
-	#outputs h2 {
-		margin-top: .5rem;
-		padding-top: .5rem;
-		border-top: 1px solid #1d1d1d;
+
+	.multi-find-replace-wrap #outputs h2 {
+		margin-top: 1.5rem;
 		font-weight: 700;
 		font-size: 1.25rem;
 	}
-	#outputs h2:first-child {
+	.multi-find-replace-wrap #outputs h2:first-child {
 		border-top: none;
+	}
+	.multi-find-replace-wrap #outputs textarea {
+		border: 1px solid #9f9f9f;
+		color: #5f5f5f;
+		padding: .5rem;
+		display: block;
+		width: 100%;
+		height: 5rem;
+		resize: none;
 	}
 </style>
 
-<div class="wrap">
+<div class="multi-find-replace-wrap">
 	<div class="replace-inputs">
 		<label for="the-input">Enter the text you want to find through:</label>
 		<textarea class="box-styles" id="the-input" placeholder="I want to replace [[this]] with something else."></textarea>
@@ -96,6 +104,9 @@ here"></textarea>
 <script>
 
 $('#submitter').click(function() {
+
+	$(this).blur();
+
 	if (!$('#the-input').val() || !$('#to-be-replaced').val() || !$('#the-replacements').val()) {
 		$('.error-text').slideDown();
 	} else {
@@ -107,20 +118,21 @@ $('#submitter').click(function() {
 
 		var replacements = replacementText.split(/\r?\n/);
 
-		console.log(replacements);
+		var outputCount = 0;
 
 		$('#outputs').empty();
-
-		var outputCount = 0;
 
 		replacements.forEach(theReplacement => {
 			var outputText = inputText.replace(replacedText, theReplacement);
 
 			outputCount += 1;
 
-			$('#outputs').append('<h2><input type="checkbox" id="out-' + outputCount + '"> <label for="out-' + outputCount + '">Output: ' + outputCount + '</label></h2><p>' + outputText + '</p>');
+			$('#outputs').append('<h2><input type="checkbox" id="out-' + outputCount + '"><label for="out-' + outputCount + '"> Output: ' + outputCount + '</label></h2><textarea onFocus="this.select()">' + outputText + '</textarea>');
 		});
 
+		var scrollPos = $('#submitter').position().top - 150;
+
+		$('html, body').stop().animate({scrollTop: scrollPos}, 500);
 	}
 });
 

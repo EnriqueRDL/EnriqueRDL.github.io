@@ -13,19 +13,28 @@
 	{% if page.archive-type == "portfolio" %}
 	<ul>
 		{% for post in site.portfolio %}
+			{% if post.hide-in-archive %}
+			{% else %}
 			<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+			{% endif %}
 		{% endfor %}
 	</ul>
 	{% elsif page.archive-type == "projects" %}
 	<ul>
 		{% for post in site.projects %}
+			{% if post.hide-in-archive %}
+			{% else %}
 			<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+			{% endif %}
 		{% endfor %}
 	</ul>
 	{% else %}
 		<ul>
 			{% for post in site.posts %}
+				{% if post.hide-in-archive %}
+				{% else %}
 				<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%B %-d, %Y" }}</li>
+				{% endif %}
 			{% endfor %}
 		</ul>
 	{% endif %}

@@ -63,6 +63,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll
+  jekyll-sass-converter (~> 2.1.0)
   webrick (~> 1.7)
 
 BUNDLED WITH

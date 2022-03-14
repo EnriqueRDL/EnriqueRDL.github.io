@@ -1,5 +1,5 @@
 ---
-title: "Axiscale Operations Work"
+title: Axiscale Operations Work
 layout: work-progress
 body-classes: ANIMATE
 
@@ -68,6 +68,12 @@ work-progress-events:
     notes:
       - Fulfiller will create a presentation that will go over all the changes in the processes & file creations.
   -
+    title: Road Less Stupid Chapter 7 Talk
+    date: March 26, 2022
+    status: none
+    notes:
+      - Fulfiller will talk about Road Less Stupid Chapter 7 to the Scalers.
+  -
     title: Process & File Overview
     date: March 27, 2022
     status: none
@@ -119,5 +125,10 @@ work-progress-events:
     notes:
       - Fulfiller will create a presentation with activities that Scalers must accomplish.
       - These activities will be for Scalers to understand how to use the Axiscale Docs website and to practice using the new processes and files.
+  -
+    title: Expenses
+    status: in-progress
+    notes:
+      - Road Less Stupid Book - $9.99
 ---
 

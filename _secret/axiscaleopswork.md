@@ -38,6 +38,9 @@ work-progress-events:
     status: in-progress
     notes:
       - Fulfiller will create a presentation showing the different processes that can be migrated fully, what needs to be edited, what needs to be created, and what will not be moved to the new system. These files will come from Day in the Life.
+    files:
+      - name: Process & File Presentation 1
+        link: https://docs.google.com/spreadsheets/d/1dLjiYvTkq1swRh1pN0TDTPrh0HyTyzeyEBvb1-Tyqqc/edit
   -
     title: Revamp Training Process
     date: March 15, 2022

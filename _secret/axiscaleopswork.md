@@ -61,12 +61,6 @@ work-progress-events:
     notes:
       - Fulfiller will check in with Client and Scalers on the different processes from the presentation to make sure everyone is okay with the processes.
   -
-    title: Create Axiscale Calendar
-    date: March 18, 2022
-    status: none
-    notes:
-      - Fulfiller will create a company calendar on Google Calendar.
-  -
     title: Copywriter Hiring
     date: March 19, 2022
     status: in-progress
@@ -139,6 +133,5 @@ work-progress-events:
     status: in-progress
     notes:
       - Road Less Stupid Book - $9.99
-      - MyNimo 10 Credits - PHP 8,400.00
 ---
 

@@ -35,7 +35,7 @@ work-progress-events:
   -
     title: Process & File Presentation (pt. 1)
     date: March 15, 2022
-    status: completed
+    status: in-progress
     notes:
       - Fulfiller will create a presentation showing the different processes that can be migrated fully, what needs to be edited, what needs to be created, and what will not be moved to the new system. These files will come from Day in the Life.
     files:

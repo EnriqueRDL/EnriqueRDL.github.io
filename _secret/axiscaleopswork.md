@@ -35,7 +35,7 @@ work-progress-events:
   -
     title: Process & File Presentation (pt. 1)
     date: March 15, 2022
-    status: in-progress
+    status: completed
     notes:
       - Fulfiller will create a presentation showing the different processes that can be migrated fully, what needs to be edited, what needs to be created, and what will not be moved to the new system. These files will come from Day in the Life.
     files:
@@ -51,18 +51,18 @@ work-progress-events:
   -
     title: WordPress Development
     date: March 15, 2022
-    status: in-progress
+    status: completed
     notes:
       - Fulfiller will make any edits required to the Axiscale Docs subdomain to make sure it meets the needs of the Process Library.
   -
     title: Process & File Filter
     date: March 16, 2022
-    status: none
+    status: completed
     notes:
       - Fulfiller will check in with Client and Scalers on the different processes from the presentation to make sure everyone is okay with the processes.
   -
     title: Copywriter Hiring
-    date: March 19, 2022
+    strike-date: March 19, 2022
     status: in-progress
   -
     title: Process & File Creation Finalizations
@@ -70,12 +70,6 @@ work-progress-events:
     status: none
     notes:
       - Fulfiller will create a presentation that will go over all the changes in the processes & file creations.
-  -
-    title: Road Less Stupid Chapter 7 Talk
-    date: March 26, 2022
-    status: none
-    notes:
-      - Fulfiller will talk about Road Less Stupid Chapter 7 to the Scalers.
   -
     title: Process & File Overview
     date: March 27, 2022
@@ -95,6 +89,12 @@ work-progress-events:
     status: none
     notes:
       - Reorganize current files inside the Google Drive to what makes sense with Axiscale Docs.
+  -
+    title: Road Less Stupid Chapter 7 Talk
+    date: March April 3, 2022
+    status: none
+    notes:
+      - Fulfiller will talk about Road Less Stupid Chapter 7 to the Scalers.
   -
     title: Operations Admin Hiring
     date: April 10, 2022
@@ -133,5 +133,6 @@ work-progress-events:
     status: in-progress
     notes:
       - Road Less Stupid Book - $9.99
+      - MyNimo 10 Credits - PHP 8,400.00
 ---
 

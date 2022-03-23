@@ -91,7 +91,7 @@ work-progress-events:
       - Reorganize current files inside the Google Drive to what makes sense with Axiscale Docs.
   -
     title: Road Less Stupid Chapter 7 Talk
-    date: March April 3, 2022
+    date: April 3, 2022
     status: none
     notes:
       - Fulfiller will talk about Road Less Stupid Chapter 7 to the Scalers.

@@ -1,15 +1,33 @@
 {% include structure/header.html %}
 	<nav class="breadcrumb">
 		<ul>
-			<li><a href="{{ site.url }}{{ site.baseurl }}">Home</a></li>
+			<li><a href="{{ site.url }}/">Home</a></li>
 			<li><a href="{{ page.url | absolute_url }}">{{ page.archivetype | capitalize }}</a></li>
 		</ul>
 	</nav>
 	<div class="content-styles">
-		<ul>
-			{% for post in site.posts %}
-			<li><a href="{{ post.url | absolute_url }}">{{ post.title }}</a> - {{ post.date | date: "%-d %B %Y" }}</li>
-			{% endfor %}
-		</ul>
+		<div class="wrapper">
+			<h1>{{ page.title }}</h1>
+			<ul class="archive-posts">
+				{% for post in site.posts %}
+				<li>
+					<a href="{{ post.url | absolute_url }}">
+						{% if post.image %}
+						<div class="post-image">
+							<img src="" alt="">
+						</div>
+						{% endif %}
+						<div class="post-contents">
+							<h2>{{ post.title }}</h2>
+							<p class="date">{{ post.date | date: "%-d %B %Y" }}</p>
+							{% if post.description %}
+							<p class="description">{{ post.description }}</p>
+							{% endif %}
+						</div>
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
 	</div>
 {% include structure/footer.html %}

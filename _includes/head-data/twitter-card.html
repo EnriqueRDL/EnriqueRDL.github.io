@@ -13,9 +13,9 @@
 
 <!-- Twitter Card Image -->
 {% if page.twitterimage %}
-<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}assets/images/blog/{{ page.slug }}-twitterimage.jpg">
+<meta name="twitter:image" content="{{ site.url }}/assets/images/blog/{{ page.slug }}/twitterimage.jpg">
 {% elsif page.image %}
-<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}assets/images/blog/{{ page.slug }}-image.jpg">
+<meta name="twitter:image" content="{{ site.url }}/assets/images/blog/{{ page.slug }}/image.jpg">
 {% elsif site.twitterimage %}
 <meta name="twitter:image" content="{{ site.twitterimage }}">
 {% else %}

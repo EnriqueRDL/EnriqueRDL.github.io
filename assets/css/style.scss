@@ -32,10 +32,31 @@ h1.logo a:hover,
 h1.logo a:focus {
 	border-bottom: 5px solid #0f0f0f;
 }
+.main-footer {
+	margin-top: 5rem;
+	margin-bottom: 1.5rem;
+	text-align: center;
+}
 
 .content-styles {
 	line-height: 2;
 	font-size: 1.15rem;
+
+	ul.archive-posts {
+		list-style: none;
+		margin: 0;
+
+		a {
+			color: inherit;
+			display: flex;
+			flex-direction: column;
+		}
+		a:hover,
+		a:focus {
+			color: inherit;
+			border: none;
+		}
+	}
 	
 	.wrapper {
 		margin: 0 auto;
@@ -46,8 +67,23 @@ h1.logo a:focus {
 		font-weight: 700;
 	}
 	h1 {
-		font-size: 3rem;
+		font-size: 2.5rem;
 		text-align: center;
+	}
+	h2 {
+		font-size: 2rem;
+	}
+	h3 {
+		font-size: 1.5rem;
+	}
+	h4 {
+		font-size: 1.25rem;
+	}
+	h5 {
+		font-size: 1rem;
+	}
+	h6 {
+		font-size: .85rem;
 	}
 	a,
 	a:visited {
@@ -58,5 +94,8 @@ h1.logo a:focus {
 	a:focus {
 		color: #053b93;
 		border-bottom: 2px solid #053b93;
+	}
+	ul, ol {
+		margin-left: 1.5rem;
 	}
 }

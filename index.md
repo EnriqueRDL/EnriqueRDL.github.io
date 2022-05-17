@@ -2,8 +2,10 @@
 title: Home
 ---
 
-Web Designer and Developer
+I'm a Web Designer and Developer.
 
-Contact me at [enrique@enriquerdl.com](mailto:enrique@enriquerdl.com)
+Contact me at [enrique@enriquerdl.com](mailto:enrique@enriquerdl.com).
 
-Read my [Blog Posts](./blog)
+Read my [Blog Posts](./blog).
+
+By the way, this website is under construction.

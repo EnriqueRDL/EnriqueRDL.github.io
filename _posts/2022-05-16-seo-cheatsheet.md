@@ -8,4 +8,5 @@ image:
     path: /assets/blog-posts/seo-cheatsheet/image.jpg
     alt: a black and white icon of magnifying glasses looking at code
 ---
+
 Something

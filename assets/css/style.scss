@@ -149,6 +149,7 @@ h1.logo a:focus {
 			display: block;
 			max-width: 100%;
 			border: 1px solid #0f0f0f;
+			margin: 0;
 		}
 		.post-contents {
 			width: calc(70% - 1rem );
@@ -213,6 +214,12 @@ h1.logo a:focus {
 	}
 	ul, ol {
 		margin-left: 1.5rem;
+	}
+	ul {
+		list-style: disc;
+	}
+	ol {
+		list-style: decimal;
 	}
 	strong {
 		font-weight: 700;

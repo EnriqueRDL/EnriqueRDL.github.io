@@ -5,16 +5,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+	{% feed_meta %}
+    {% seo %}
+	{% include head-data/meta-keywords.html %}
 	{% include head-data/google-fonts.html %}
 	{% include head-data/styles.html %}
-	{% include head-data/meta-description.html %}
-	{% include head-data/meta-keywords.html %}
-	{% include head-data/rel-canonical.html %}
 	{% include head-data/favicon.html %}
-	{% include head-data/index-follow.html %}
-	{% include head-data/open-graph.html %}
-	{% include head-data/twitter-card.html %}
 </head>
 <body>
     <div class="big-wrapper">

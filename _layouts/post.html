@@ -2,15 +2,49 @@
 	<nav class="breadcrumb">
 		<ul>
 			<li><a href="{{ site.url }}/">Home</a></li>
-			{% if page.collection == 'posts' %}
-			<li><a href="{{ site.url }}/blog">Blog</a></li>
-			{% endif %}
-			<li><a href="{{ page.url | absolute_url }}">{{ page.title }}</a></li>
+			<li>
+				<a href="{{ site.url }}/blog">
+					{% assign words = page.archivetype | split: ' ' %}
+					{% capture titlecase %}
+						{% for word in words %}
+							{{ word | capitalize }}
+						{% endfor %}
+					{% endcapture %}
+					{{ titlecase }}
+				</a>
+			</li>
+			<li><a href="{{ page.url | absolute_url }}" class="active-crumb">{{ page.title }}</a></li>
 		</ul>
 	</nav>
 	<div class="content-styles">
 		<div class="wrapper">
+			<img src="{{ site.url }}{{ page.image.path }}" alt="{{ page.image.alt }}" class="featured-image">
 			<h1>{{ page.title }}</h1>
+			<div class="post-info nomarginalize">
+				<p><strong>Posted:</strong> {{ page.author.name }} on {{ page.date | date: "%-d %B %Y" }}</p>
+				<p>
+					{% if page.categories.size == 0 %}
+					{% elsif page.categories.size == 1 %}
+					<strong>Category:</strong>
+					{% else %}
+					<strong>Categories:</strong>
+					{% endif %}
+					{% for category in page.categories %}
+						{{ category }}{% if forloop.last == false %},{% endif %}
+					{% endfor %}
+				</p>
+				<p>
+					<strong>Tags:</strong>
+				{% if page.tags %}
+					{% for tag in page.tags %}
+						{{ tag }}{% if forloop.last == false %},{% endif %}
+					{% endfor %}
+				{% endif %}
+				</p>
+			</div>
+			{% if page.description %}
+			<p>{{ page.description }}</p>
+			{% endif %}
 			{{ content }}
 		</div>
 	</div>

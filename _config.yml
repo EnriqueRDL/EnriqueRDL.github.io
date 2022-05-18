@@ -1,14 +1,16 @@
 title: EnriqueRDL
 url: https://enriquerdl.com # http://localhost:4000
 description: EnriqueRDL creates professional Shopify and WordPress websites. Get the web design and development services you need today!
-
-image: http://localhost:4000/assets/images/site_image.png
-ogimage: http://localhost:4000/assets/images/og_image.png
-twitterimage: http://localhost:4000/assets/images/twitter_image.png
+tagline: Creating professional Shopify and WordPress websites.
 
 exclude: [
     readme.md
 ]
+
+plugins:
+    - jekyll-feed
+    - jekyll-sitemap
+    - jekyll-seo-tag
 
 sass:
     style: compressed
@@ -16,7 +18,9 @@ sass:
 permalink: /blog/:title/
 
 email: enrique@enriquerdl.com
-twitter: https://twitter.com/EnriqueRDL
+twitter:
+    username: enriquerdl
+    card: summary_large_image
 github: https://github.com/EnriqueRDL
 
 markdown: kramdown
@@ -24,14 +28,27 @@ markdown: kramdown
 defaults:
     -
         scope:
-            path: ""
-            type: "pages"
+            path:
+            type: pages
         values:
-            layout: "default"
+            layout: default
+            image:
+                path: /assets/images/site_image.jpg
+                width: 1200
+                height: 1200
+                alt: EnriqueRDL pointing
     -
         scope:
-            path: ""
-            type: "posts"
+            path:
+            type: posts
         values:
-            layout: "post"
-            author: "EnriqueRDL"
+            layout: post
+            archivetype: "blog posts"
+            image:
+                path: /assets/images/site_image.jpg
+                width: 1200
+                height: 1200
+                alt: EnriqueRDL pointing
+            author:
+                name: EnriqueRDL
+                url: https://enriquerdl.com/

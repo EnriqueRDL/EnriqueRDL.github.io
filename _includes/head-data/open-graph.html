@@ -9,9 +9,9 @@
 
 <!-- Open Graph Image -->
 {% if page.ogimage %}
-<meta property="og:image" content="{{ site.url }}/blog/{{ page.slug }}/ogimage.jpg">
+<meta property="og:image" content="{{ site.url }}/blog-posts/{{ page.slug }}/ogimage.jpg">
 {% elsif page.image %}
-<meta property="og:image" content="{{ site.url }}/blog/{{ page.slug }}/image.jpg">
+<meta property="og:image" content="{{ site.url }}/blog-posts/{{ page.slug }}/image.jpg">
 {% elsif site.ogimage %}
 <meta property="og:image" content="{{ site.ogimage }}">
 {% else %}

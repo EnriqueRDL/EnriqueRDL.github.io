@@ -1,5 +1,7 @@
 {% include structure/header.html %}
 	<div class="content-styles">
+	{% if page.nomarginalize %}<div class="nomarginalize">{% endif %}
 		{{ content }}
+	{% if page.nomarginalize %}</div>{% endif %}</div>
 	</div>
 {% include structure/footer.html %}

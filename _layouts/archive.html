@@ -2,26 +2,58 @@
 	<nav class="breadcrumb">
 		<ul>
 			<li><a href="{{ site.url }}/">Home</a></li>
-			<li><a href="{{ page.url | absolute_url }}">{{ page.archivetype | capitalize }}</a></li>
+			<li>
+				<a href="{{ page.url | absolute_url }}" class="active-crumb">
+					{% assign words = page.archivetype | split: ' ' %}
+					{% capture titlecase %}
+						{% for word in words %}
+							{{ word | capitalize }}
+						{% endfor %}
+					{% endcapture %}
+					{{ titlecase }}
+				</a>
+			</li>
 		</ul>
 	</nav>
 	<div class="content-styles">
 		<div class="wrapper">
 			<h1>{{ page.title }}</h1>
+			{% if nosearch %} {% else %}
+			<input type="search" title="Search through posts" placeholder="Search Posts..." class="archive-search">
+			{% endif %}
 			<ul class="archive-posts">
 				{% for post in site.posts %}
 				<li>
 					<a href="{{ post.url | absolute_url }}">
-						{% if post.image %}
 						<div class="post-image">
-							<img src="" alt="">
+							{% if post.image %}
+							<img src="{{ site.url }}{{ post.image.path }}" alt="{{ post.image.alt }}"{% if forloop.index > 4 %} loading="lazy"{% endif %}>
+							{% endif %}
 						</div>
-						{% endif %}
-						<div class="post-contents">
+						<div class="post-contents nomarginalize">
 							<h2>{{ post.title }}</h2>
-							<p class="date">{{ post.date | date: "%-d %B %Y" }}</p>
+							<p><strong>Posted:</strong> {{ post.author.name }} on {{ post.date | date: "%-d %B %Y" }}</p>
+							<p>
+								{% if post.categories.size == 0 %}
+								{% elsif post.categories.size == 1 %}
+								<strong>Category:</strong>
+								{% else %}
+								<strong>Categories:</strong>
+								{% endif %}
+								{% for category in post.categories %}
+									{{ category }}{% if forloop.last == false %},{% endif %}
+								{% endfor %}
+							</p>
+							<p>
+								<strong>Tags:</strong>
+							{% if post.tags %}
+								{% for tag in post.tags %}
+									{{ tag }}{% if forloop.last == false %},{% endif %}
+								{% endfor %}
+							{% endif %}
+							</p>
 							{% if post.description %}
-							<p class="description">{{ post.description }}</p>
+							<p class="description"><strong>Description:</strong> {{ post.description }}</p>
 							{% endif %}
 						</div>
 					</a>

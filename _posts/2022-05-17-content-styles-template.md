@@ -5,8 +5,8 @@ categories: CSS Templates
 tags: content-styling content css template
 keywords: SEO Cheats how-to
 image:
-	path: /assets/blog-posts/content-styles-template/image.jpg
-	alt: black and white image of a glasses icon with a mustache.
+  path: /assets/blog-posts/content-styles-template/image.jpg
+  alt: black and white image of a glasses icon with a mustache.
 ---
 
 Content Here

@@ -21,8 +21,7 @@ email: enrique@enriquerdl.com
 twitter:
     username: enriquerdl
     card: summary_large_image
-github:
-    username: EnriqueRDL
+github: https://github.com/EnriqueRDL
 
 
 markdown: kramdown

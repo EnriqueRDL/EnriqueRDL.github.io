@@ -1,5 +1,5 @@
 title: EnriqueRDL
-url: https://enriquerdl.com # http://localhost:4000
+url: https://enriquerdl.com # https://enriquerdl.com # http://localhost:4000
 description: EnriqueRDL creates professional Shopify and WordPress websites. Get the web design and development services you need today!
 tagline: Creating professional Shopify and WordPress websites.
 
@@ -41,7 +41,7 @@ defaults:
                 path: /assets/images/site_image.jpg
                 width: 1200
                 height: 1200
-                alt: EnriqueRDL pointing
+                alt: a screenshot of the enriquerdl homepage
     -
         scope:
             path: ""
@@ -53,7 +53,7 @@ defaults:
                 path: /assets/images/site_image.jpg
                 width: 1200
                 height: 1200
-                alt: EnriqueRDL pointing
+                alt: a screenshot of the enriquerdl homepage
             author:
                 name: EnriqueRDL
                 url: https://enriquerdl.com/

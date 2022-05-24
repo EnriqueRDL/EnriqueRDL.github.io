@@ -44,6 +44,7 @@ h1.logo a:focus {
 .breadcrumb ul {
 	display: flex;
 	flex-wrap: wrap;
+	line-height: 1.5;
 }
 @media screen and (max-width: $smallbreakpoint) {
 	.breadcrumb ul {
@@ -56,6 +57,7 @@ h1.logo a:focus {
 .breadcrumb ul li {
 	font-size: 1.15rem;
 	display: flex;
+	align-items: stretch;
 	a {
 		color: inherit;
 		text-decoration: none;
@@ -70,7 +72,7 @@ h1.logo a:focus {
 	content: "";
 	display: block;
 	width: 1em;
-	height: 1em;
+	height: 1.5em;
 	margin: 0 .5em;
 	background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjMGYwZjBmIiBkPSJNMjQgMTJsLTktOHY2aC0xNXY0aDE1djZ6Ii8+PC9zdmc+");
 	background-size: 100%;

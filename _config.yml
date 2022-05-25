@@ -29,7 +29,6 @@ plugins:
     - jekyll-feed
     - jekyll-sitemap
     - jekyll-seo-tag
-    - jekyll-toc
 
 sass:
     style: compressed
@@ -72,4 +71,4 @@ defaults:
             author:
                 name: EnriqueRDL
                 url: https://enriquerdl.com/
-            toc: false
+            toc: true

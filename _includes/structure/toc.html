@@ -5,7 +5,7 @@
 			<span class="toc-toggler-label-close">Close</span>
 			Table of Contents</button>
 		<div class="toc">
-			{% toc %}
+			{{ content | toc_only }}
 		</div>
 	</div>
 {% endif %}

@@ -3,12 +3,9 @@ url: https://enriquerdl.com # https://enriquerdl.com # http://localhost:4000
 description: EnriqueRDL creates professional Shopify and WordPress websites. Get the web design and development services you need today!
 tagline: Creating professional Shopify and WordPress websites.
 
-assetversions:
-    css: 1.0.4
-
 css:
     production: true
-    version: 1.0.5
+    version: 1.0.6
     files:
         - reset.scss
         - default.scss
@@ -16,7 +13,7 @@ css:
 
 js:
     production: false
-    version: 1.0.5
+    version: 1.0.6
     files:
         - archive-search.js
         - toc.js

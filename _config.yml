@@ -72,4 +72,4 @@ defaults:
             author:
                 name: EnriqueRDL
                 url: https://enriquerdl.com/
-            toc: true
+            toc: false

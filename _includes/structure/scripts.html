@@ -1,7 +1,7 @@
 {% if site.js.production == true %}
-    <script src="{{ site.url }}/assets/js/bundle.js?v={{ site.js.version }}"></script>
+	<script src="{{ site.url }}/assets/js/bundle.js?v={{ site.js.version }}"></script>
 {% else %}
-    {% for file in site.js.files %}
-        <script src="{{ site.url }}/assets/js/{{ file }}"></script>
-    {% endfor %}
+	{% for file in site.js.files %}
+		<script src="{{ site.url }}/assets/js/{{ file }}?v={{ site.js.version }}"></script>
+	{% endfor %}
 {% endif %}

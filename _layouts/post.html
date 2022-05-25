@@ -42,11 +42,11 @@
 				{% endif %}
 				</p>
 			</div>
+			{% include structure/toc.html %}
 			{% if page.description %}
 			<p>{{ page.description }}</p>
 			{% endif %}
 			{{ content }}
 		</div>
 	</div>
-	{% include structure/toc.html %}
 {% include structure/footer.html %}

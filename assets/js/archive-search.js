@@ -1,4 +1,3 @@
-
 /* Get archive search */
 const archiveSearch = document.querySelector('input.archive-search');
 

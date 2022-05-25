@@ -1,3 +1,11 @@
-<div class="toc">
-    {% toc %}
-</div>
+{% if page.toc == true %}
+	<div class="toc-container">
+		<button class="toc-toggler">
+			<span class="toc-toggler-label-open">Open</span>
+			<span class="toc-toggler-label-close">Close</span>
+			Table of Contents</button>
+		<div class="toc">
+			{% toc %}
+		</div>
+	</div>
+{% endif %}

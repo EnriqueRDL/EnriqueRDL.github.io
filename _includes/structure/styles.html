@@ -1,5 +1,11 @@
 <!-- CSS Styles -->
 {% if page.nodefaultstyles %}
 {% else %}
-<link rel="stylesheet" href="{{ site.url }}/assets/css/bundle.css?v={{ site.assetversions.css }}">
+	{% if site.css.production == true %}
+		<link rel="stylesheet" href="{{ site.url }}/assets/css/bundle.css?v={{ site.css.version }}">
+	{% else %}
+		{% for file in site.css.files %}
+			<link rel="stylesheet" href="{{ site.url }}/assets/css/{{ file }}?v={{ site.css.version }}"></link>
+		{% endfor %}
+	{% endif %}
 {% endif %}

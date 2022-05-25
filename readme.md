@@ -1,6 +1,6 @@
 # Read Me
 
-[TOC]
+{:toc}
 
 ## Blog Posts
 

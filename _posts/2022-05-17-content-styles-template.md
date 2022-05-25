@@ -9,10 +9,3 @@ image:
     alt: black and white image of a glasses icon with a mustache.
 ---
 
-[TOC]
-
-## I'm a back
-
-lorem upsudpsjfc;s fwejfwe jfoweji;fwaj foaweijfalf sajfjskdafksadfsadlfhasfahwlea
-
-### shjekfhasefhlslafskl

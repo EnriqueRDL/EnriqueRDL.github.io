@@ -12,6 +12,7 @@
 	{% include head-data/google-fonts.html %}
 	{% include head-data/favicon.html %}
 </head>
-<body>
+<body data-barba="wrapper">
     <div class="big-wrapper">
 		<h1 class="logo"><a href="{{ site.url }}/">{{ site.title }}</a></h1>
+		<main data-barba="container" data-barba-namespace="{{ page.layout }}">

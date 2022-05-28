@@ -1,4 +1,15 @@
 {% include structure/header.html %}
+
+	{% if page.css %}
+		{% if page.css.first %}
+			{% for file in page.css %}
+				<link rel="stylesheet" href="{{ site.url }}{{ file }}?v={{ site.css.version }}"></link>
+			{% endfor %}
+		{% else %}
+			<link rel="stylesheet" href="{{ site.url }}{{ page.css }}?v={{ site.css.version }}">
+		{% endif %}
+	{% endif %}
+
 	<nav class="breadcrumb">
 		<ul>
 			<li><a href="{{ site.url }}/">Home</a></li>
@@ -49,4 +60,15 @@
 			{{ content }}
 		</div>
 	</div>
+
+	{% if page.js %}
+		{% if page.js.first %}
+			{% for file in page.js %}
+				<script src="{{ site.url }}{{ file }}?v={{ site.js.version }}"></script>
+			{% endfor %}
+		{% else %}
+			<script src="{{ site.url }}{{ page.js }}?v={{ site.js.version }}"></script>
+		{% endif %}
+	{% endif %}
+	
 {% include structure/footer.html %}

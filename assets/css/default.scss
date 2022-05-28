@@ -161,6 +161,9 @@ h1.logo a:focus {
 	p, ul, ol, pre, blockquote, img, table, figure {
 		margin-bottom: 1.5rem;
 	}
+	ul ul, ul ol, ol ul, ol ol {
+		margin-bottom: 0;
+	}
 	.nomarginalize {
 		p, ul, ol, pre, blockquote, img, table, figure {
 			margin-bottom: 0;
@@ -212,6 +215,10 @@ h1.logo a:focus {
 	}
 	strong {
 		font-weight: 700;
+	}
+	img {
+		display: block;
+		max-width: 100%;
 	}
 }
 

@@ -1,0 +1,30 @@
+#control-center input {
+	font-size: inherit;
+}
+
+#view-box {
+	height: 350px;
+	overflow-y: scroll;
+	border: 1px solid #0f0f0f;
+	padding: 1rem;
+}
+#view-box img {
+	margin: 0 auto 1rem;
+}
+#view-box p {
+	width: 150%;
+}
+
+#code-output {
+	width: 100%;
+	height: 450px;
+	background: inherit;
+	border: 1px solid #0f0f0f;
+	resize: none;
+	font-family: monospace;
+}
+#code-output:focus {
+	outline: none;
+	border-color: #0645AD;
+	box-shadow: 0 0 3px #0645AD;
+}

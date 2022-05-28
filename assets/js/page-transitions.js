@@ -1,17 +1,20 @@
+let standardTransition = {
+};
+
 barba.init({
 	transitions: [{
 		name: 'opacity-transition',
 		once(data) {
 			return gsap.from(data.current.container, {
-				translate: '0 -100%',
-				opacity: 0,
+				translate: '0 -100px',
+				opacity: -.5,
 				duration: .35
 			});
 		},
 		leave(data) {
 			return gsap.to(data.current.container, {
-				translate: '-100%',
-				opacity: 0,
+				translate: '0 -100px',
+				opacity: -.5,
 				duration: .35
 			});
 		},
@@ -24,8 +27,8 @@ barba.init({
 		enter(data) {
 			build();
 			return gsap.from(data.next.container, {
-				translate: '100%',
-				opacity: 0,
+				translate: '0 100px',
+				opacity: -.5,
 				duration: .35
 			});
 		}

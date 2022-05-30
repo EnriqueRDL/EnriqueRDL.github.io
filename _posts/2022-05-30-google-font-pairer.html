@@ -1,0 +1,326 @@
+---
+title: Google Font Pairer
+description: I used the Google Fonts API to create a font pairer for designers to use.
+categories: Design API
+tags: google-fonts API pairer design interactive
+toc: false
+---
+
+<style>
+    button, select, input {
+        font-size: 1em;
+        max-width: 100%;
+        display: inline-block;
+    }
+    #pairer-settings {
+        display: none;
+    }
+    #view-output {
+        border: 1px solid #0f0f0f;
+        padding: 3.5rem;
+        cursor: pointer;
+    }
+    #view-output * {
+        margin: 0;
+        padding: 0; 
+    }
+    #view-output.expanded {
+        position: fixed;
+        top: 10%;
+        left: 10%;
+        width: 80%;
+        height: 80%;
+    }
+</style>
+
+<style id="headline-font-face"></style>
+<style id="body-font-face"></style>
+<style id="universal-fonter"></style>
+
+<script src="https://apis.google.com/js/api.js"></script>
+
+<p>Instructions:</p>
+
+<ol>
+    <li>Load the Google Fonts API.</li>
+    <li>Select a way you want to sort the fonts.</li>
+    <li>Select headline & body fonts and font styles.</li>
+    <li>Change font and body colors if you like.</li>
+</ol>
+
+<p id="pairer-instructions">To begin please click: <button onclick="loadPairer();">Load Google Fonts API</button></p>
+
+<div id="pairer-settings">
+    <h2>Settings</h2>
+
+    <ul>
+        <li>Font Sorter: 
+            <select name="sortby" id="sortby" title="Sort By"></select>
+        </li>
+    </ul>
+    <ul>
+        <li>Background Color:
+            <input type="color" value="#f0f0f0" id="bg-color" onchange="buildUniversal();">
+        </li>
+        <li>Line Height:
+            <select name="line-height" id="line-height" onchange="buildUniversal();">
+                <option value="1">1</option>
+                <option value="1.25">1.25</option>
+                <option selected value="1.5">1.5</option>
+                <option value="1.75">1.75</option>
+                <option value="2">2</option>
+                <option value="2.25">2.25</option>
+                <option value="2.5">2.5</option>
+                <option value="2.75">2.75</option>
+                <option value="3">3</option>
+            </select>
+        </li>
+    </ul>
+    <ul>
+        <li>Headline Font:
+            <select name="headline-font-list" id="headline-font-list" title="Headline Font List" onchange="buildHeadlineFace(true);">
+                <option value="" disabled selected>Select a Sort</option>
+            </select>
+        </li>
+        <li>Headline Font Style:
+            <select name="headline-style-list" id="headline-style-list" title="Headline Style List" onchange="buildHeadlineFace();">
+                <option value="" disabled selected>Select a Font</option>
+            </select>
+        </li>
+        <li>Headline Font Size:
+            <input type="number" min="12" max="128" value="36" id="headline-size">px
+        </li>
+        <li>Headline Font Color:
+            <input type="color" value="#0f0f0f" id="headline-color">
+        </li>
+    </ul>
+    <ul>
+        <li>Body Font:
+            <select name="body-font-list" id="body-font-list" title="Body Font List" onchange="buildBodyFace(true);">
+                <option value="" disabled selected>Select a Sort</option>
+            </select>
+        </li>
+        <li>Body Font Style:
+            <select name="body-style-list" id="body-style-list" title="Body Style List" onchange="buildBodyFace();">
+                <option value="" disabled selected>Select a Font</option>
+            </select>
+        </li>
+        <li>Body Font Size:
+            <input type="number" min="18" max="128" value="18" id="body-size">px
+        </li>
+        <li>Body Font Color:
+            <input type="color" value="#0f0f0f" id="body-color">
+        </li>
+    </ul>
+
+    <h2>View Output</h2>
+
+    <div id="view-output">
+        <h3>Nullaq Lectus Boom</h3>
+        <p>Fo shizzle ipsum shiz sit amizzle, doggy adipiscing own yo'. Nullizzle doggy velit, crazy get down get down, suscipizzle yippiyo, vizzle, go to hizzle. Pellentesque brizzle tortizzle. Sizzle erizzle. Hizzle izzle dolizzle dapibizzle da bomb tempizzle shit.</p>
+    </div>
+</div>
+<script>
+
+    var expanded = false;
+
+    function expandToggle() {
+        var output = document.getElementById("view-output");
+        if (!expanded) {
+            output.classList.add('expanded');
+            expanded = true;
+        } else {
+            output.classList.remove('expanded');
+            expanded = false;
+        }
+    }
+    document.querySelector("#view-output").addEventListener("click", expandToggle);
+    
+    /**
+     * Sample JavaScript code for webfonts.webfonts.list
+     * See instructions for running APIs Explorer code samples locally:
+     * https://developers.google.com/explorer-help/code-samples#javascript
+     */
+
+    function loadClient() {
+        gapi.client.setApiKey("AIzaSyCxkwNUDBgfWVXfnTDyTIRDPbJirww5Pyw");
+        return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/webfonts/v1/rest")
+            .then(
+                function() {
+                    console.log("GAPI client loaded for API");
+                    var sorters = '<option value="" selected disabled>Sort By</option><option value="ALPHA">Alphanumeric</option><option value="DATE">Date</option><option value="POPULARITY">Popularity</option><option value="STYLE">Style</option><option value="TRENDING">Trending</option><option value="SORT_UNDEFINED">Undefined (?)</option>';
+                    document.querySelector('#sortby').innerHTML = sorters;
+                    document.querySelector('#pairer-instructions').style.display = 'none';
+                    document.querySelector('#pairer-settings').style.display = 'block';
+                },
+                function(err) {
+                    document.querySelector('#pairer-instructions').innerHTML = 'Error loading GAPI client for API';
+                }
+            );
+    }
+    // Make sure the client is loaded before calling this method.
+
+    var sortedFonts = {};
+
+    function getFonts(sortby) {
+        console.clear();
+        return gapi.client.webfonts.webfonts.list({
+            "sort": sortby,
+        })
+        // Loop through names
+        .then(function(response) {
+
+            sortedFonts = response.result.items;
+
+            sortedFontsHTML = '<option selected value="" disabled>Select a font</option>';
+
+            for (var i = 0; i < sortedFonts.length; i++) {
+                var name = sortedFonts[i].family;
+                var files = sortedFonts[i].files;
+
+                var dataStyles = '';
+                var dataFiles = ''
+
+                var fileLast = Object.keys(files).length;
+                var fileCounter = 0;
+
+                for (const file in files) {
+                    dataStyles += (file);
+                    dataFiles += (files[file]);
+
+                    fileCounter++;
+                    if (fileCounter < fileLast) {
+                        dataStyles += ', ';
+                        dataFiles += ', ';
+                    }
+                }
+
+                sortedFontsHTML += '<option value="' + name + '" data-styles="' + dataStyles + '" data-files="' + dataFiles + '">' + name + '</option>';
+            }
+
+            document.querySelector('#headline-font-list').innerHTML = sortedFontsHTML;
+            document.querySelector('#headline-style-list').innerHTML = '';
+
+            document.querySelector('#body-font-list').innerHTML = sortedFontsHTML;
+            document.querySelector('#body-style-list').innerHTML = '';
+        });
+    }
+
+    function getStyles(font, element) {
+
+        var fontStyles = document.querySelector('#headline-font-list ' + 'option[value="' + font + '"]').dataset.styles.split(', ');
+        var fontURLs = document.querySelector('#headline-font-list ' + 'option[value="' + font + '"]').dataset.files.split(', ');
+
+        var fontStylesHTML = '<option selected disabled value="">Select a style</option>';
+        
+        for (var i = 0; i < fontStyles.length; i++) {
+            var fontStyle = fontStyles[i];
+            var fontURL = fontURLs[i];
+
+            fontStylesHTML += '<option value="' + fontStyle + '" data-url="' + fontURL + '">' + fontStyle + '</option>';
+
+            element.innerHTML = fontStylesHTML;
+        }
+    }
+
+    gapi.load("client");
+
+    function loadPairer() {
+        loadClient();
+    }
+
+    function buildHeadlineFace(useSerif) {
+        var style = document.querySelector('#headline-style-list').value;
+
+        if (!style) return;
+        
+        var url = document.querySelector('#headline-style-list option[value="' + style + '"]').dataset.url;
+
+        var face = '@font-face {\n';
+        face += '\tfont-family: "HeadlineFont";\n';
+        if (useSerif) {
+            face += '\tsrc: none;\n';
+        } else {
+            face += '\tsrc: url("' + url + '");\n';
+        }
+        face += '}';
+
+        console.log(face);
+
+        document.querySelector('#headline-font-face').innerHTML = face;
+    }
+    function buildBodyFace(useSerif) {
+        var style = document.querySelector('#body-style-list').value;
+
+        if (!style) return;
+
+        var url = document.querySelector('#body-style-list option[value="' + style + '"]').dataset.url;
+        
+        var face = '@font-face {\n';
+        face += '\tfont-family: "BodyFont";\n';
+        if (useSerif) {
+            face += '\tsrc: none;\n';
+        } else {
+            face += '\tsrc: url("' + url + '");\n';
+        }
+        face += '}';
+        
+        document.querySelector('#body-font-face').innerHTML = face;
+    }
+
+    function buildUniversal() {
+
+        var universal = '#view-output {\n';
+        universal += '\tbackground-color: ' + document.querySelector('#bg-color').value + ';\n';
+        universal += '\tline-height: ' + document.querySelector('#line-height').value + ';\n';
+        universal += '}\n';
+
+        universal += '#view-output h3 {\n';
+        universal += '\tfont-family: HeadlineFont;\n';
+        universal += '\tfont-size: ' + document.querySelector('#headline-size').value + 'px;\n';
+        universal += '\tbackground-color: inherit;\n';
+        universal += '\tcolor: ' + document.querySelector('#headline-color').value + ';\n';
+        universal += '\tline-height: inherit;\n';
+        universal += '}\n';
+
+        universal += '#view-output p {\n';
+        universal += '\tfont-family: BodyFont;\n';
+        universal += '\tfont-size: ' + document.querySelector('#body-size').value + 'px;\n';
+        universal += '\tbackground-color: inherit;\n';
+        universal += '\tcolor: ' + document.querySelector('#body-color').value + ';\n';
+        universal += '\tline-height: inherit;\n';
+        universal += '}';
+
+        document.querySelector('#universal-fonter').innerHTML = universal;
+    }
+
+    buildUniversal();
+
+    document.querySelector('#pairer-settings').addEventListener('change', function() {
+        buildUniversal();
+    });
+    
+    const sortby = document.getElementById("sortby");
+
+    sortby.addEventListener("change", function() {
+        if (sortby.value == '') return;
+        
+        getFonts(sortby.value);
+    });
+
+    const headlineFontList = document.getElementById("headline-font-list");
+
+    headlineFontList.addEventListener("change", function() {
+        if (headlineFontList.value == '') return;
+
+        getStyles(headlineFontList.value, document.querySelector('#headline-style-list'));
+    });
+
+    const bodyFontList = document.getElementById("body-font-list");
+
+    bodyFontList.addEventListener("change", function() {
+        if (bodyFontList.value == '') return;
+
+        getStyles(bodyFontList.value, document.querySelector('#body-style-list'));
+    });
+</script>
